@@ -7,13 +7,13 @@ from datetime import datetime
 path = 'Images'
 Images = []
 PersonName = []
-mylist = os.listdir(path)
+mylist = os.listdir(path) #klasorleri listele gibi bir fonksiyonu var/ dir direction - klasör oluyor
 print(mylist)
 # for separating the name from their extensions
 for cu_img in mylist:
-    current_Img = cv2.imread(f'{path}/{cu_img}')
+    current_Img = cv2.imread(f'{path}/{cu_img}') #resimin yolunu fonksiyonun içine yazıp okuma yani resmi işleme özelliğini kullanacağız
     Images.append(current_Img)
-    PersonName.append(os.path.splitext(cu_img)[0])
+    PersonName.append(os.path.splitext(cu_img)[0]) # uzantının ilk elemanını split eder ve personname e atar
 print(PersonName)
 
 
@@ -31,7 +31,7 @@ print("ALL ENCODING FOUND!!!")
 
 
 def attendance(name):
-    with open('Attendence.csv', 'r+') as f:
+    with open('Attendence.csv', 'r+') as f: # with ifadesiyle işlemlerin sonunda açılan dosya kapanır
         myDataList = f.readlines()
         nameList = []
         for line in myDataList:
